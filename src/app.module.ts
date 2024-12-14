@@ -5,7 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/configuration';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DriversModule } from './modules/drivers/drivers.module';
-import { LoggerService } from './logging';
+import { LoggerService } from './infrastructure/logging';
 
 @Module({
   imports: [

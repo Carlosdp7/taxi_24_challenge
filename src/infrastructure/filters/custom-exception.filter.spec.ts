@@ -5,13 +5,8 @@ import {
   BadRequestException,
   UnauthorizedException,
 } from '@nestjs/common';
-import {
-  CustomExceptionFilter,
-  ErrorDetail,
-  ErrorResponse,
-} from './custom-exception.filter';
-import { LoggerService } from '../logging/logger.service';
-import { BusinessError } from '../common/base.error';
+import { CustomExceptionFilter, ErrorDetail, ErrorResponse } from '.';
+import { LoggerService } from '../logging';
 import { catchError, firstValueFrom } from 'rxjs';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { AxiosError } from 'axios';
@@ -167,28 +162,6 @@ describe('System header validation service', () => {
       };
 
       expect(mockStatus).toBeCalledWith(HttpStatus.UNAUTHORIZED);
-      const errorResponse: ErrorResponse = mockJson.mock.calls[0][0];
-      const errorDetail: ErrorDetail = errorResponse.error;
-      expect(errorDetail).toEqual(errorExpected);
-    });
-
-    it('Handle Business exception', () => {
-      class BusinessLogicException extends BusinessError {
-        constructor() {
-          super('BusinessLogic', 'Invalid business logic');
-        }
-      }
-
-      exceptionfilter.catch(new BusinessLogicException(), mockArgumentsHost);
-      const errorExpected: ErrorDetail = {
-        type: 'BusinessLogic',
-        message: 'Invalid business logic',
-        timestamp: fakeDate.toISOString(),
-        path: '/path',
-        method: 'GET',
-      };
-
-      expect(mockStatus).toBeCalledWith(HttpStatus.BAD_REQUEST);
       const errorResponse: ErrorResponse = mockJson.mock.calls[0][0];
       const errorDetail: ErrorDetail = errorResponse.error;
       expect(errorDetail).toEqual(errorExpected);

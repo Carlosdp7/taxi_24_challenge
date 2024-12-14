@@ -4,10 +4,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DriversController } from './controllers/drivers.controller';
 import { CommandHandlers } from './commands/handlers';
 import { QueryHandlers } from './queries/handlers';
+import { DriverEntity } from './entities/driver.entity';
+import { LoggerService } from '../../infrastructure/logging';
 
 @Module({
-  imports: [CqrsModule, TypeOrmModule.forFeature([])],
+  imports: [CqrsModule, TypeOrmModule.forFeature([DriverEntity])],
   controllers: [DriversController],
-  providers: [...CommandHandlers, ...QueryHandlers],
+  providers: [...CommandHandlers, ...QueryHandlers, LoggerService],
 })
 export class DriversModule {}
