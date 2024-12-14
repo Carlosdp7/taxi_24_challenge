@@ -6,6 +6,7 @@ import configuration from './config/configuration';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DriversModule } from './modules/drivers/drivers.module';
 import { LoggerService } from './infrastructure/logging';
+import { PassengersModule } from './modules/passengers/passengers.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { LoggerService } from './infrastructure/logging';
       inject: [ConfigService],
     }),
     DriversModule,
+    PassengersModule,
   ],
   controllers: [AppController],
   providers: [AppService, LoggerService],
