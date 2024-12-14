@@ -18,20 +18,9 @@ export class CreatePassengerHandler
 
   async execute(command: CreatePassengerCommand): Promise<PassengerEntity> {
     this._loggerService.info(`[handler] CreatePassengerHandler...`);
-    const name = command.body.name.toUpperCase();
+    const body = command.body;
 
-    const exists = await this._passengerRepository.findOne({
-      where: {
-        name: name,
-      },
-    });
-
-    if (exists) {
-      this._loggerService.error('Passenger already exists', { name });
-      throw new BadRequestException('Passenger already exists');
-    }
-
-    const newPassenger = this._passengerRepository.create({ name });
+    const newPassenger = this._passengerRepository.create(body);
 
     await this._passengerRepository.save(newPassenger);
 
