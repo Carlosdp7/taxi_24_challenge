@@ -4,9 +4,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DriversController } from './controllers/drivers.controller';
 import { CommandHandlers } from './commands/handlers';
 import { QueryHandlers } from './queries/handlers';
+import { DriverEntity } from './entities/driver.entity';
 
 @Module({
-  imports: [CqrsModule, TypeOrmModule.forFeature([])],
+  imports: [CqrsModule, TypeOrmModule.forFeature([DriverEntity])],
   controllers: [DriversController],
   providers: [...CommandHandlers, ...QueryHandlers],
 })
