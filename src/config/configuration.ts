@@ -1,8 +1,9 @@
+import { PassengerEntity } from '../modules/passengers/entities';
 import { DriverEntity } from '../modules/drivers/entities/driver.entity';
 
 export default () => ({
   db: {
-    entities: [DriverEntity],
+    entities: [DriverEntity, PassengerEntity],
     type: 'postgres',
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
