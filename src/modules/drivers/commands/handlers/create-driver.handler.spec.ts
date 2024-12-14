@@ -17,7 +17,7 @@ const createDriverReqMock: CreateDriverRequestDto = {
   longitude: '-123.1231',
 };
 
-const driverMock: DriverEntity = {
+export const driverMock: DriverEntity = {
   ...createDriverReqMock,
   id: 1,
   isAvailable: true,
@@ -55,7 +55,7 @@ describe('CreateDriverHandler', () => {
     jest.resetAllMocks();
   });
 
-  it('should create a new challenge', async () => {
+  it('should create a new driver', async () => {
     driverRepository.create.mockReturnValue(driverMock);
     driverRepository.save.mockResolvedValue(driverMock);
 

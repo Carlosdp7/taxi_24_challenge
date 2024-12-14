@@ -7,17 +7,13 @@ import { PassengerEntity } from '../../entities';
 import { CreatePassengerRequestDto } from '../../dtos';
 import { CreatePassengerCommand } from '../impl';
 import { LoggerService } from '../../../../infrastructure/logging';
+import { BadRequestException } from '@nestjs/common';
 
 const createPassengerMock: CreatePassengerRequestDto = {
   name: 'John Doe',
-  car_brand: 'Toyota',
-  car_color: 'Black',
-  car_plate: 'XYZ 123',
-  latitude: '123.12231',
-  longitude: '-123.1231',
 };
 
-const passengerMock: PassengerEntity = {
+export const passengerMock: PassengerEntity = {
   ...createPassengerMock,
   id: 1,
   isAvailable: true,
@@ -55,7 +51,7 @@ describe('CreatePassengerHandler', () => {
     jest.resetAllMocks();
   });
 
-  it('should create a new challenge', async () => {
+  it('should create a new passenger', async () => {
     passengerRepository.create.mockReturnValue(passengerMock);
     passengerRepository.save.mockResolvedValue(passengerMock);
 

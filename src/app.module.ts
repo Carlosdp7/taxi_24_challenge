@@ -7,6 +7,7 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { DriversModule } from './modules/drivers/drivers.module';
 import { LoggerService } from './infrastructure/logging';
 import { PassengersModule } from './modules/passengers/passengers.module';
+import { TripsModule } from './modules/trips/trips.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { PassengersModule } from './modules/passengers/passengers.module';
     }),
     DriversModule,
     PassengersModule,
+    TripsModule,
   ],
   controllers: [AppController],
   providers: [AppService, LoggerService],
