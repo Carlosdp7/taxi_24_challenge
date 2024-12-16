@@ -28,9 +28,7 @@ services:
     image: dpage/pgadmin4
     restart: always
     container_name: pgadmin
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=taxi24@taxi24.com
-      - PGADMIN_DEFAULT_PASSWORD=taxi24
+    env_file: '.env'
     ports:
       - '5050:80'
     depends_on:
