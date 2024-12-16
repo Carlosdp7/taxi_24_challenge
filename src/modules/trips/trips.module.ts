@@ -8,11 +8,17 @@ import { TripEntity } from './entities/trip.entity';
 import { LoggerService } from '../../infrastructure/logging';
 import { DriverEntity } from '../drivers/entities';
 import { PassengerEntity } from '../passengers/entities';
+import { InvoiceEntity } from './entities';
 
 @Module({
   imports: [
     CqrsModule,
-    TypeOrmModule.forFeature([TripEntity, DriverEntity, PassengerEntity]),
+    TypeOrmModule.forFeature([
+      TripEntity,
+      DriverEntity,
+      PassengerEntity,
+      InvoiceEntity,
+    ]),
   ],
   controllers: [TripsController],
   providers: [...CommandHandlers, ...QueryHandlers, LoggerService],
