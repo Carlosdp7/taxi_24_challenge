@@ -1,12 +1,14 @@
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { DriverEntity } from '../entities';
 import {
   GetAllDriversQuery,
   GetAvailableDriversQuery,
   GetDriverQuery,
+  GetDriversByRadioQuery,
+  GetNearestDriversQuery,
 } from '../queries/impl';
-import { CreateDriverRequestDto } from '../dtos';
+import { CreateDriverRequestDto, LocationQueryDto } from '../dtos';
 import { CreateDriverCommand } from '../commands/impl';
 
 @Controller()
@@ -23,15 +25,24 @@ export class DriversController {
   async getAvailableDrivers(): Promise<DriverEntity[]> {
     return this._queryBus.execute(new GetAvailableDriversQuery());
   }
+
+  @Get('drivers/radio')
+  async getDriversByRadio(
+    @Query() query: LocationQueryDto,
+  ): Promise<DriverEntity[]> {
+    return this._queryBus.execute(new GetDriversByRadioQuery(query));
+  }
+  @Get('drivers/nearest')
+  async getNearestDrivers(
+    @Query() query: LocationQueryDto,
+  ): Promise<DriverEntity[]> {
+    return this._queryBus.execute(new GetNearestDriversQuery(query));
+  }
+
   @Get('drivers/:id')
   async getDriver(@Param('id') id: number): Promise<DriverEntity> {
     return this._queryBus.execute(new GetDriverQuery(id));
   }
-  // // Get closest drivers
-  // @Get('drivers/nearest')
-  // async getNearestDrivers(): Promise<DriverEntity[]> {
-  //   return this._queryBus.execute(new GetBannersQuery(customerId));
-  // }
 
   @Post('drivers')
   async createDriver(
