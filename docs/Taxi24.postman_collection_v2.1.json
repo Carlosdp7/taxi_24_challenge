@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "69c0cde0-8277-4f77-a06f-da2a7795bed8",
+		"name": "Taxi24",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11593498"
+	},
+	"item": [
+		{
+			"name": "Drivers",
+			"item": [
+				{
+					"name": "Get All Drivers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/drivers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Drivers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/drivers/availables",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drivers",
+								"availables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Driver",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/drivers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drivers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Drivers By Radio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/drivers/radio?latitude=28.535989664525733&longitude=-81.37246239812623",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drivers",
+								"radio"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "28.535989664525733"
+								},
+								{
+									"key": "longitude",
+									"value": "-81.37246239812623"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Nearest Drivers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/drivers/nearest?latitude=28.535989664525733&longitude=-81.37246239812623",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drivers",
+								"nearest"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "28.535989664525733"
+								},
+								{
+									"key": "longitude",
+									"value": "-81.37246239812623"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"car_brand\": \"Toyota\",\r\n    \"car_color\": \"Black\",\r\n    \"car_plate\": \"XYZ 123\",\r\n    \"latitude\": \"28.535430036923547\",\r\n    \"longitude\": \"-81.37156430218083\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/drivers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Case 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe Case 1\",\r\n    \"car_brand\": \"Toyota\",\r\n    \"car_color\": \"Black\",\r\n    \"car_plate\": \"XYZ 123\",\r\n    \"latitude\": \"28.532426667896694\",\r\n    \"longitude\": \"-81.36939582360586\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drivers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drivers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Case 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe Case 2\",\r\n    \"car_brand\": \"Toyota\",\r\n    \"car_color\": \"Black\",\r\n    \"car_plate\": \"XYZ 123\",\r\n    \"latitude\": \"28.50344568892073\",\r\n    \"longitude\": \"-81.40690682887701\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drivers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drivers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Case 3",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe Case 3\",\r\n    \"car_brand\": \"Toyota\",\r\n    \"car_color\": \"Black\",\r\n    \"car_plate\": \"XYZ 123\",\r\n    \"latitude\": \"28.535430036923547\",\r\n    \"longitude\": \"-81.37156430218083\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drivers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drivers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Case 4",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe Case 4\",\r\n    \"car_brand\": \"Toyota\",\r\n    \"car_color\": \"Black\",\r\n    \"car_plate\": \"XYZ 123\",\r\n    \"latitude\": \"28.541244330283188\",\r\n    \"longitude\": \"-81.3710348261409\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/drivers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"drivers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Passengers",
+			"item": [
+				{
+					"name": "Get All Passengers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/passengers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Passenger",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/passengers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"passengers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Passenger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/passengers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Get Completed Trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trips/completed",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trips",
+								"completed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passengerId\": 1,\r\n    \"driverId\": 1,\r\n    \"latTo\": \"28.50344568892073\",\r\n    \"latFrom\": \"28.535989664525733\",\r\n    \"lngTo\": \"-81.40690682887701\",\r\n    \"lngFrom\": \"-81.37246239812623\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trips",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Trip",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trips/:id/complete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trips",
+								":id",
+								"complete"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Healthz Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/healthz",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"healthz"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

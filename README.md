@@ -21,7 +21,7 @@ Al ejecutar este comando se creará un entorno de desarrollo para el facil teste
 Con el fin de hacer todas las pruebas necesarias he creado una colección en Postman con datos de prueba y una guia de testeo para cubrir cada uno de los casos de uso.
 
 - [Guía de Testing](./docs/testing.md)
-- [Postman](./docs/postman.json)
+- [Postman](./docs/Taxi24.postman_collection_v2.1.json)
 
 ## Support
 
