@@ -29,6 +29,7 @@ export class GetDriversByRadioHandler
     });
 
     const nearestDrivers = drivers.filter((driver) => {
+      this._loggerService.info(`Driver: ${driver.name}`);
       const distance = getDistance(
         { latitude: startLat, longitude: startLng },
         { latitude: driver.latitude, longitude: driver.longitude },
